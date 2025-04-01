@@ -1,7 +1,26 @@
 var http = require('http');
+var fs = require('fs');
+
 
 //create a server object:
-http.createServer(function (req, res) {
-  res.write('HELLO WORD , THIS IS MY PROJECT'); //write a response to the client
-  res.end(); //end the response
+http.createServer(function (req, response) {
+  // send the HTTP header
+  // HTTP Status: 200 : OK
+  // Content Type: text/plain
+  response.writeHead(200, {'Content-type': 'text/html'});
+  //write a response to the client
+  fs.readFile('index.html',null,function(error,data){
+    if(error){
+      response.writeHead(404);
+      response.write('file not found');
+    }
+      else{
+        response.write(data);
+      }
+
+      response.end();
+
+
+  
+  }
 }).listen(80); //the server object listens on port 80
