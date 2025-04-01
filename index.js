@@ -17,10 +17,7 @@ http.createServer(function (req, response) {
       else{
         response.write(data);
       }
-
-      response.end();
-
-
   
-  }
+      response.end();
+    })
 }).listen(80); //the server object listens on port 80
