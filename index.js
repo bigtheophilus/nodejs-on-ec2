@@ -7,7 +7,7 @@ http.createServer(function (req, response) {
   // send the HTTP header
   // HTTP Status: 200 : OK
   // Content Type: text/plain
-  response.writeHead(200, {'Content-type': 'text/html', 'text/css'});
+  response.writeHead(200, {'Content-type': 'text/html'});
   //write a response to the client
   fs.readFile('index.html','StyleSheet.css' ,null,function(error,data){
     if(error){
